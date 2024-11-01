@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Play Audio on Button Click</title>
+</head>
+<body>
+
+<h2>Play Audio Example</h2>
+
+<!-- Button to play audio -->
+<button onclick="playAudio()">Play Audio</button>
+
+<!-- Audio element -->
+<audio id="myAudio" src="2.ogg"></audio>
+
+
+<script>
+    // Function to play the audio
+    function playAudio() {
+        var audio = document.getElementById("myAudio");
+        audio.play();
+    }
+</script>
+
+</body>
+</html>
