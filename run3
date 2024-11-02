@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Play Audio on Button Click</title>
+    <meta name="theme-color" content="#333">
+</head>
+<body>
+
+<img src="phone.png">
+
+<!-- Button to play audio -->
+<button onclick="playAudio()">Play Audio</button>
+
+<!-- Audio element -->
+<audio id="myAudio" src="2.wav"></audio>
+
+
+<script>
+    // Function to play the audio
+    function playAudio() {
+        var audio = document.getElementById("myAudio");
+        audio.play();
+    }
+</script>
+
+</body>
+</html>
