@@ -5,32 +5,48 @@
     <meta name="theme-color" content="#333">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-        <style>
-        /* Set image to cover the screen */
+    <style>
+        /* Set background color for body */
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
             overflow: hidden;
+            background-color: #333; /* Change this to your preferred color */
         }
+        
+        /* Set image to cover the screen */
         img.fullscreen-image {
             width: 100vw;
             height: 100vh;
             object-fit: cover;
+        }
+
+        /* Style button */
+        button {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #333;
+            border: none;
+            border-radius: 5px;
         }
     </style>
     
 </head>
 <body>
 
-<img src="phone3.png" class="fullscreen-image">
+<img src="phone3.png" class="fullscreen-image" alt="Background Image">
 
 <!-- Button to play audio -->
 <button onclick="playAudio()">Play Audio</button>
 
 <!-- Audio element -->
 <audio id="myAudio" src="2.wav"></audio>
-
 
 <script>
     // Function to play the audio
