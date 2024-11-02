@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interactive Image and Audio</title>
+    <meta name="theme-color" content="#333">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <style>
+        /* Set background color for body */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            background-color: rgb(30, 30, 30);
+        }
+        
+        /* Set image to cover the screen but hidden initially */
+        img.fullscreen-image {
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            display: none; /* Hide the image initially */
+        }
+    </style>
+</head>
+<body>
+
+<!-- Image element (initially hidden) -->
+<img id="mainImage" src="phone3.png" class="fullscreen-image" alt="Background Image">
+
+<!-- Audio elements -->
+<audio id="audio1" src="ring2.wav"></audio>
+<audio id="audio2" src="titta.wav"></audio>
+
+<script>
+    // Function to show the image with a delay and play the audio immediately
+    function showImageWithDelayAndPlayAudio() {
+        // Play the first audio immediately on user click
+        var audio1 = document.getElementById("audio1");
+        audio1.play();
+
+        // Delay showing the image by 5 seconds
+        setTimeout(function() {
+            document.getElementById("mainImage").style.display = "block";
+        }, 5000);
+    }
+
+    // Function to switch to the second image and play the second audio
+    function switchToSecondImageAndPlayAudio() {
+        // Change the image source
+        var mainImage = document.getElementById("mainImage");
+        mainImage.src = "phone4.png";
+
+        // Stop the first audio
+        var audio1 = document.getElementById("audio1");
+        audio1.pause();
+        audio1.currentTime = 0;
+
+        // Play the second audio
+        var audio2 = document.getElementById("audio2");
+        audio2.play();
+
+        // Update click event to darken the screen on the next click
+        mainImage.onclick = darkenScreenAndStopAudio;
+    }
+
+    // Function to darken the screen and stop the second audio
+    function darkenScreenAndStopAudio() {
+        // Hide the image
+        var mainImage = document.getElementById("mainImage");
+        mainImage.style.display = "none";
+
+        // Stop the second audio
+        var audio2 = document.getElementById("audio2");
+        audio2.pause();
+        audio2.currentTime = 0;
+    }
+
+    // Event listener for the initial click anywhere on the body
+    document.body.addEventListener("click", showImageWithDelayAndPlayAudio, { once: true });
+
+    // Event listener for clicks on the main image to trigger the next steps
+    document.getElementById("mainImage").onclick = switchToSecondImageAndPlayAudio;
+</script>
+
+</body>
+</html>
