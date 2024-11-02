@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Play Audio on Button Click</title>
+    <meta name="theme-color" content="#333">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <style>
+        /* Set image to cover the screen */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        img.fullscreen-image {
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+        }
+    </style>
+    
+</head>
+<body>
+
+<img src="phone2.png" class="fullscreen-image">
+
+<!-- Button to play audio -->
+<button onclick="playAudio()">Play Audio</button>
+
+<!-- Audio element -->
+<audio id="myAudio" src="2.wav"></audio>
+
+
+<script>
+    // Function to play the audio
+    function playAudio() {
+        var audio = document.getElementById("myAudio");
+        audio.play();
+    }
+</script>
+
+</body>
+</html>
